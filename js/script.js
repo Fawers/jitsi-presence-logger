@@ -155,11 +155,7 @@ window.addEventListener('load', function () {
     });
 
     csvData.addEventListener('change', function(_) {
-        try {
-            csvTimestamp.value = csvData.valueAsDate.toISOString();
-        } catch(_) {
-            csvTimestamp.value = new Date(0).toISOString();
-        }
+        csvTimestamp.value = (csvData.valueAsDate || new Date(0)).toISOString();
     });
 
     csvBaixar.addEventListener('click', function(_) {
